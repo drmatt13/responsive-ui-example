@@ -21,15 +21,18 @@ const Layout = ({ children }: Props) => {
   const [showMobileMenuOptions, setShowMobileMenuOptions] = useState(false);
 
   useEffect(() => {
-    document.addEventListener("keydown", (e) => {
-      e.preventDefault();
+    document.body.addEventListener("keydown", (e) => {
       if (e.ctrlKey && e.key === "k") {
+        e.preventDefault();
+        e.stopPropagation();
         setShowSearch(true);
       }
     });
     return () => {
-      document.removeEventListener("keydown", (e) => {
+      document.body.removeEventListener("keydown", (e) => {
         if (e.ctrlKey && e.key === "k") {
+          e.preventDefault();
+          e.stopPropagation();
           setShowSearch(true);
         }
       });
@@ -63,8 +66,8 @@ const Layout = ({ children }: Props) => {
                   <SideNav />
                   <MobileSideNav />
                   <MobileMenuOptions
-                    showMobileSideNav={showMobileMenuOptions}
-                    setShowMobileSideNav={setShowMobileMenuOptions}
+                    showMobileMenu={showMobileMenuOptions}
+                    setShowMobileMenu={setShowMobileMenuOptions}
                   />
                   <div className="flex-1 py-6 lg:py-10 lg:pl-12 pointer-events-auto z-10 overflow-hidden">
                     <>{children}</>

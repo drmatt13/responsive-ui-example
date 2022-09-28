@@ -1,19 +1,17 @@
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 // context
 import { useGlobalContext } from "../context/globalContext";
 
 interface Props {
-  showMobileSideNav: boolean;
-  setShowMobileSideNav: (value: boolean) => void;
+  showMobileMenu: boolean;
+  setShowMobileMenu: (value: boolean) => void;
 }
 
-const MobileMenuOptions = ({
-  showMobileSideNav,
-  setShowMobileSideNav,
-}: Props) => {
+const MobileMenuOptions = ({ showMobileMenu, setShowMobileMenu }: Props) => {
   const { mobile, darkMode, toggleDarkMode } = useGlobalContext();
-  const mobileSideNavRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -25,62 +23,100 @@ const MobileMenuOptions = ({
   };
 
   useEffect(() => {
-    if (showMobileSideNav) {
+    if (showMobileMenu) {
       const scrollbarWidth = window.innerWidth - document.body.clientWidth;
       document.body.style.overflow = "hidden";
-      mobileSideNavRef!.current!.style.overflowY = "scroll";
+      mobileMenuRef!.current!.style.overflowY = "scroll";
       containerRef!.current!.style.right = `${16}px`;
       if (!mobile) document.body.style.paddingRight = `${scrollbarWidth}px`;
     } else {
       const scrollbarWidth =
-        window.innerWidth - mobileSideNavRef!.current!.clientWidth;
+        window.innerWidth - mobileMenuRef!.current!.clientWidth;
       document.body.style.overflow = "unset";
-      mobileSideNavRef!.current!.style.overflowY = "hidden";
+      mobileMenuRef!.current!.style.overflowY = "hidden";
       containerRef!.current!.style.right = `${scrollbarWidth + 16}px`;
       if (!mobile) document.body.style.paddingRight = "0";
     }
-  }, [showMobileSideNav, mobile]);
+  }, [showMobileMenu, mobile]);
 
   return (
     <div
-      ref={mobileSideNavRef}
+      ref={mobileMenuRef}
       className="z-20 fixed top-0 left-0 w-screen h-screen lg:hidden pointer-events-none"
     >
       <div
         className={`${
-          showMobileSideNav
+          showMobileMenu
             ? "backdrop-blur-sm bg-black/20 dark:bg-black/10"
             : "hidden"
         } absolute top-0 left-0 h-full w-full pointer-events-auto`}
-        onClick={() => setShowMobileSideNav(false)}
+        onClick={() => setShowMobileMenu(false)}
       />
       <div
         ref={containerRef}
         className={`${
-          showMobileSideNav
+          showMobileMenu
             ? "linear duration-300 pointer-events-auto"
             : "-translate-y-[110%] ease-out duration-[400ms]"
         } shadow shadow-black/25 bg-white dark:bg-slate-800 absolute top-4 right-4 w-80 max-w-[88vw] transition-transform overflow-hidden rounded-lg`}
       >
         <div className="p-6 h-full">
           <div className="flex flex-col items-start">
-            <div className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer">
-              Portfolio
+            <div
+              onClick={() => setShowMobileMenu(false)}
+              className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer"
+            >
+              <a
+                rel="noreferrer"
+                target="_blank"
+                href="https://portfolio-min.vercel.app/"
+              >
+                Portfolio
+              </a>
             </div>
-            <div className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer">
-              Github
+            <div
+              onClick={() => setShowMobileMenu(false)}
+              className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer"
+            >
+              <a
+                rel="noreferrer"
+                target="_blank"
+                href="https://github.com/drmatt13/responsive-ui-example"
+              >
+                Github
+              </a>
             </div>
-            <div className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer">
-              Option one
+            <div
+              onClick={() => setShowMobileMenu(false)}
+              className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer"
+            >
+              <Link href="/option-one" passHref>
+                Option one
+              </Link>
             </div>
-            <div className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer">
-              Option two
+            <div
+              onClick={() => setShowMobileMenu(false)}
+              className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer"
+            >
+              <Link href="/option-two" passHref>
+                Option two
+              </Link>
             </div>
-            <div className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer">
-              Option three
+            <div
+              onClick={() => setShowMobileMenu(false)}
+              className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer"
+            >
+              <Link href="/option-two" passHref>
+                Option two
+              </Link>
             </div>
-            <div className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer">
-              Sign In
+            <div
+              onClick={() => setShowMobileMenu(false)}
+              className="mb-5 dark:text-gray-400 hover:text-sky-400 dark:hover:text-white cursor-pointer"
+            >
+              <Link href="/login" passHref>
+                Sign In
+              </Link>
             </div>
           </div>
           <hr className="mb-5 border-black/10 dark:border-white/20" />

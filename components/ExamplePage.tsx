@@ -26,8 +26,10 @@ const ExamplePage = () => {
       <div className="pl-2 pb-2 flex items-center text-gray-600">
         - layout inspired by{" "}
         <a
-          className="ml-1 text-blue-600 dark:text-sky-400 hover:text-purple-500 dark:hover:text-purple-500"
+          className="ml-1 text-blue-500 dark:text-sky-400 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
           href="https://tailwindcss.com/"
+          rel="noreferrer"
+          target="_blank"
         >
           tailwindcss.com
         </a>
@@ -35,8 +37,10 @@ const ExamplePage = () => {
       <div className="pl-2 pb-2 flex items-center text-gray-600">
         - created from scratch by{" "}
         <a
-          className="ml-1 text-pink-600 dark:text-yellow-400 hover:text-purple-500 dark:hover:text-purple-500"
+          className="ml-1 text-pink-500 dark:text-yellow-400 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
           href="https://portfolio-min.vercel.app"
+          rel="noreferrer"
+          target="_blank"
         >
           Matthew
         </a>
@@ -44,12 +48,17 @@ const ExamplePage = () => {
       <div className="pl-2 pb-2 flex items-center text-gray-600">
         - check out the repository for this{" "}
         <a
-          className="ml-1 text-green-600 dark:text-green-500 hover:text-purple-500 dark:hover:text-purple-500"
-          href="https://portfolio-min.vercel.app"
+          className="ml-1 text-green-500 dark:text-green-500 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
+          href="https://github.com/drmatt13/responsive-ui-example"
+          rel="noreferrer"
+          target="_blank"
         >
           page
         </a>
       </div>
+      {/* <div className="pl-2 pb-2 flex items-center text-gray-600">
+        - sdfsdpofksdf
+      </div> */}
     </div>
   );
 };

@@ -51,36 +51,46 @@ const Navbar = ({ setShowMobileSideNav, setShowMobileMenuOptions }: Props) => {
       <div className="w-full flex flex-col max-w-[100rem] transition-none duration-[0]">
         <div className="w-full h-14 px-5 lg:px-10 xl:px-14">
           <div className="h-full flex items-center justify-between">
-            <div className="select-none flex items-center hover:cursor-pointer">
-              <svg
-                viewBox="0 0 52 31"
-                className="text-slate-900 dark:text-white w-auto h-5"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.145-2.551 3.382-5.528 4.65-8.93 3.804-1.942-.482-3.33-1.882-4.865-3.431C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.93-3.805 1.942.482 3.33 1.882 4.865 3.432 2.502 2.524 5.397 5.445 11.722 5.445 6.804 0 11.057-3.381 12.758-10.145-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.483-3.329-1.883-4.864-3.432-2.502-2.524-5.398-5.446-11.722-5.446z"
-                  fill="#38bdf8"
-                ></path>
-              </svg>
-              <div className="text-xl ml-2 hidden md:inline font-[400]">
-                UI Responsive Design Example
+            <Link href="/" passHref>
+              <div className="select-none flex items-center hover:cursor-pointer pointer-events-auto">
+                <svg
+                  viewBox="0 0 52 31"
+                  className="text-slate-900 dark:text-white w-auto h-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.145-2.551 3.382-5.528 4.65-8.93 3.804-1.942-.482-3.33-1.882-4.865-3.431C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.93-3.805 1.942.482 3.33 1.882 4.865 3.432 2.502 2.524 5.397 5.445 11.722 5.445 6.804 0 11.057-3.381 12.758-10.145-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.483-3.329-1.883-4.864-3.432-2.502-2.524-5.398-5.446-11.722-5.446z"
+                    fill="#38bdf8"
+                  ></path>
+                </svg>
+                <div className="text-xl ml-2 hidden md:inline font-[400]">
+                  UI Responsive Design Example
+                </div>
+                <div className="hidden text-xl ml-2 sm:inline md:hidden font-[400]">
+                  Responsive Design
+                </div>
               </div>
-              <div className="hidden text-xl ml-2 sm:inline md:hidden font-[400]">
-                Responsive Design
-              </div>
-            </div>
+            </Link>
             <div className="flex text-slate-900 dark:text-gray-300 [&>div>div>i]:w-6 [&>div>div>i]:h-6 [&>div>div>i]:flex [&>div>div>i]:justify-center [&>div>div>i]:items-center">
               <div className="hidden lg:flex text-slate-900 dark:text-gray-300">
                 <div className="pr-6 hover:text-sky-400 dark:hover:text-white cursor-pointer">
-                  <Link href="https://portfolio-min.vercel.app" passHref>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    href="https://portfolio-min.vercel.app"
+                  >
                     Portfolio
-                  </Link>
+                  </a>
                 </div>
                 <div className="hover:text-sky-400 dark:hover:text-white cursor-pointer">
-                  <Link href="/github" passHref>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    href="https://github.com/drmatt13/responsive-ui-example"
+                  >
                     Github
-                  </Link>
+                  </a>
                 </div>
                 <div className="relative px-6 h-6 group pointer-events-none">
                   <div className="group-hover:pointer-events-auto">
