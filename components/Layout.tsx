@@ -16,8 +16,7 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  const { showSearch, setShowSearch, setShowMobileSideNav } =
-    useGlobalContext();
+  const { setShowSearch, setShowMobileSideNav } = useGlobalContext();
   const [showMobileMenuOptions, setShowMobileMenuOptions] = useState(false);
 
   useEffect(() => {
@@ -72,7 +71,7 @@ const Layout = ({ children }: Props) => {
                   <div className="flex-1 py-6 lg:py-10 lg:pl-12 pointer-events-auto z-10 overflow-hidden">
                     <>{children}</>
                   </div>
-                  {showSearch && <SearchModal />}
+                  <SearchModal />
                 </div>
               </div>
             </div>
