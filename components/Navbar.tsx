@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/future/image";
@@ -17,9 +17,11 @@ const capitalizeFirstLetter = (s: string) => {
 
 const Navbar = ({ setShowMobileSideNav, setShowMobileMenuOptions }: Props) => {
   const { darkMode, toggleDarkMode, setShowSearch } = useGlobalContext();
+  const navRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
   const [darkBackground, setDarkBackground] = useState(false);
+  const [transition, setTransition] = useState(false);
 
   const handleScroll = useCallback(() => {
     window.scrollY > 25
@@ -34,14 +36,28 @@ const Navbar = ({ setShowMobileSideNav, setShowMobileMenuOptions }: Props) => {
     };
   }, [handleScroll]);
 
+  useEffect(() => {
+    if (darkMode) {
+      setTimeout(() => {
+        setTransition(() => true);
+      }, 250);
+    } else {
+      setTransition(() => false);
+    }
+  }, [darkMode, setTransition]);
+
   return (
     <nav
+      ref={navRef}
       className={`${
         darkBackground
-          ? "bg-white dark:bg-black/40 transition-colors"
+          ? "bg-white dark:bg-black/40"
           : "bg-white dark:bg-black/0"
+      } ${
+        transition ? "transition-colors" : ""
       } z-20 sticky top-0 dark:backdrop-blur border-b border-b-gray-900/20 dark:border-b-white/10 ease-out flex justify-center`}
     >
+      <div className="hidden transition-colors" />
       <div className="absolute left-1 opacity-75 dark:opacity-25 transition-none duration-[0]">
         <div className="inline sm:hidden">xs</div>
         <div className="hidden sm:inline md:hidden">sm</div>

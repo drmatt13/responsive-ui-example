@@ -88,7 +88,7 @@ const SearchModal = () => {
               <div className="flex h-full w-full justify-center items-center">
                 <div
                   onClick={() => setShowSearch(false)}
-                  className="cursor-pointer flex justify-center items-center bg-gray-500/20 hover:bg-gray-500/30 dark:bg-gray-500/50 dark:hover:bg-gray-400/50 px-1 rounded text-gray-700 dark:text-white/60"
+                  className="cursor-pointer flex justify-center items-center bg-gray-500/20 hover:bg-gray-500/30 dark:bg-gray-500/50 dark:hover:bg-gray-400/50 px-1 mr-2 rounded text-gray-700 dark:text-white/60"
                 >
                   esc
                 </div>
