@@ -37,10 +37,21 @@ const ExamplePage = () => {
           <div className="pr-4 hidden md:inline-block">--{">"}</div>
           <div className="pt-4 md:pt-0 md:inline-block">{location}</div>
         </div>
-        <div className="p-2 flex items-center text-gray-600">
+        <div className="p-2 flex items-center text-gray-700 dark:text-gray-400">
           - created w/ next.js, tailwindcss, and typescript
         </div>
-        <div className="pl-2 pb-2 flex items-center text-gray-600">
+        <div className="pl-2 pb-2 flex items-center text-gray-700 dark:text-gray-400">
+          - check out the{" "}
+          <a
+            className="ml-1 text-green-500 dark:text-green-500 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
+            href="https://github.com/drmatt13/responsive-ui-example"
+            rel="noreferrer"
+            target="_blank"
+          >
+            repository
+          </a>
+        </div>
+        <div className="pl-2 pb-2 flex items-center text-gray-700 dark:text-gray-400">
           - layout inspired by{" "}
           <a
             className="ml-1 text-blue-500 dark:text-sky-400 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
@@ -51,7 +62,8 @@ const ExamplePage = () => {
             tailwindcss.com
           </a>
         </div>
-        <div className="pl-2 pb-2 flex items-center text-gray-600">
+
+        <div className="pl-2 pb-2 flex items-center text-gray-700 dark:text-gray-400">
           - created from scratch by{" "}
           <a
             className="ml-1 text-pink-500 dark:text-yellow-400 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
@@ -62,17 +74,7 @@ const ExamplePage = () => {
             Matthew
           </a>
         </div>
-        <div className="pl-2 pb-2 flex items-center text-gray-600">
-          - check out the repository for this{" "}
-          <a
-            className="ml-1 text-green-500 dark:text-green-500 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
-            href="https://github.com/drmatt13/responsive-ui-example"
-            rel="noreferrer"
-            target="_blank"
-          >
-            page
-          </a>
-        </div>
+
         {/* <div className="pl-2 pb-2 flex items-center text-gray-600">
         - sdfsdpofksdf
       </div> */}

@@ -38,9 +38,9 @@ const Navbar = ({ setShowMobileSideNav, setShowMobileMenuOptions }: Props) => {
     <nav
       className={`${
         darkBackground
-          ? "bg-white dark:bg-black/40"
+          ? "bg-white dark:bg-black/40 transition-colors"
           : "bg-white dark:bg-black/0"
-      } z-20 sticky top-0 dark:backdrop-blur border-b border-b-gray-900/20 dark:border-b-white/10 transition-colors /duration-700 ease-out flex justify-center`}
+      } z-20 sticky top-0 dark:backdrop-blur border-b border-b-gray-900/20 dark:border-b-white/10 ease-out flex justify-center`}
     >
       <div className="absolute left-1 opacity-75 dark:opacity-25 transition-none duration-[0]">
         <div className="inline sm:hidden">xs</div>

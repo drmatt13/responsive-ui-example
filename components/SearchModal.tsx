@@ -27,6 +27,7 @@ const SearchModal = () => {
       masterContainerRef!.current!.style.overflowY = "hidden";
       searchContainerRef!.current!.style.right = `${scrollbarWidth + 16}px`;
       if (!mobile) document.body.style.paddingRight = "0";
+      setSearch("");
     }
   }, [showSearch, mobile]);
 
