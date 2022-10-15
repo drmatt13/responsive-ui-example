@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 
 // context
@@ -22,6 +22,13 @@ const MobileMenuOptions = ({ showMobileMenu, setShowMobileMenu }: Props) => {
     }
   };
 
+  const resize = useCallback(() => {
+    const pageWidth = window.innerWidth;
+    if (pageWidth > 1023) {
+      setShowMobileMenu(false);
+    }
+  }, [setShowMobileMenu]);
+
   useEffect(() => {
     if (showMobileMenu) {
       const scrollbarWidth = window.innerWidth - document.body.clientWidth;
@@ -37,7 +44,11 @@ const MobileMenuOptions = ({ showMobileMenu, setShowMobileMenu }: Props) => {
       containerRef!.current!.style.right = `${scrollbarWidth + 16}px`;
       if (!mobile) document.body.style.paddingRight = "0";
     }
-  }, [showMobileMenu, mobile]);
+    window.addEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+    };
+  }, [showMobileMenu, mobile, resize]);
 
   return (
     <div

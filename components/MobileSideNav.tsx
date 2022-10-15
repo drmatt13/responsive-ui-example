@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 // components
 import RouteList from "./RouteList";
@@ -11,6 +11,13 @@ const MobileSideNav = () => {
   const { mobile, showMobileSideNav, setShowMobileSideNav } =
     useGlobalContext();
 
+  const resize = useCallback(() => {
+    const pageWidth = window.innerWidth;
+    if (pageWidth > 1023) {
+      setShowMobileSideNav(false);
+    }
+  }, [setShowMobileSideNav]);
+
   useEffect(() => {
     const scrollbarWidth = window.innerWidth - document.body.clientWidth;
     if (showMobileSideNav) {
@@ -22,7 +29,11 @@ const MobileSideNav = () => {
       mobileSideNavRef!.current!.style.overflowY = "hidden";
       if (!mobile) document.body.style.paddingRight = "0";
     }
-  }, [showMobileSideNav, mobile]);
+    window.addEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+    };
+  }, [showMobileSideNav, mobile, resize]);
 
   return (
     <div
