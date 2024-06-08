@@ -85,7 +85,7 @@ const Navbar = ({ setShowMobileSideNav, setShowMobileMenuOptions }: Props) => {
                   <a
                     rel="noreferrer"
                     target="_blank"
-                    href="https://portfolio-min.vercel.app"
+                    href="https://matts-projects.vercel.app/"
                   >
                     Portfolio
                   </a>
