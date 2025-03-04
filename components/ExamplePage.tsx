@@ -67,7 +67,7 @@ const ExamplePage = () => {
           - created from scratch by{" "}
           <a
             className="ml-1 text-pink-500 dark:text-yellow-400 hover:underline hover:text-purple-600 dark:hover:text-purple-500"
-            href="https://portfolio-min.vercel.app"
+            href="https://matts-projects.vercel.app"
             rel="noreferrer"
             target="_blank"
           >
